@@ -21,16 +21,24 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.9
-      - name: Build release APK
-        run: gradle :app:assembleRelease --no-daemon
-      - name: Rename APK
-        run: cp app/build/outputs/apk/release/app-release.apk AmazonRiverCamera.apk
+      - name: Build release APKs (relógio + celular)
+        run: gradle :app:assembleRelease :phone:assembleRelease --no-daemon
+      - name: Rename APKs
+        run: |
+          cp app/build/outputs/apk/release/app-release.apk AmazonRiverCamera.apk
+          cp phone/build/outputs/apk/release/phone-release.apk AmazonRiverCameraCompanion.apk
       - uses: actions/upload-artifact@v4
         with:
           name: AmazonRiverCamera-apk
           path: AmazonRiverCamera.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AmazonRiverCameraCompanion-apk
+          path: AmazonRiverCameraCompanion.apk
       - name: Publish release (tags v*)
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: AmazonRiverCamera.apk
+          files: |
+            AmazonRiverCamera.apk
+            AmazonRiverCameraCompanion.apk
