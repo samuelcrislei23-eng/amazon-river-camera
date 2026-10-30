@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000000">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="top" android:background="#CC000000"
+        android:orientation="vertical" android:padding="20dp">
+        <TextView android:id="@+id/tvTitle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="AMAZON RIVER · CAMERA COMPANION"
+            android:textColor="#FFFFFF" android:textSize="14sp" android:letterSpacing="0.08"
+            android:textStyle="bold" />
+        <TextView android:id="@+id/tvAddress"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="PROCURANDO ENDEREÇO DE REDE..."
+            android:textColor="#FFFFFF" android:textSize="22sp" android:letterSpacing="0.04" />
+        <TextView android:id="@+id/tvHint"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Digite este endereço nas configurações do relógio, em PHONE IP. Deixe este app aberto enquanto usa o reconhecimento facial do banco."
+            android:textColor="#AAAAAA" android:textSize="12sp" />
+        <TextView android:id="@+id/tvStatus"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="AGUARDANDO O RELÓGIO..."
+            android:textColor="#4CD964" android:textSize="13sp" android:letterSpacing="0.06" />
+    </LinearLayout>
+</FrameLayout>
